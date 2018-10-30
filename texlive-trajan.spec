@@ -6,7 +6,7 @@
 # catalog-version 1.1
 Name:		texlive-trajan
 Version:	1.1
-Release:	10
+Release:	11
 Summary:	Fonts from the Trajan column in Rome
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/fonts/trajan
