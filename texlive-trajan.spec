@@ -1,19 +1,13 @@
-# revision 15878
-# category Package
-# catalog-ctan /fonts/trajan
-# catalog-date 2007-10-24 18:05:15 +0200
-# catalog-license lppl
-# catalog-version 1.1
 Name:		texlive-trajan
-Version:	1.1
-Release:	11
+Version:	15878
+Release:	1
 Summary:	Fonts from the Trajan column in Rome
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/fonts/trajan
 License:	LPPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/trajan.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/trajan.doc.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/trajan.source.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/trajan.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/trajan.doc.r%{version}.tar.xz
+Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/trajan.source.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -28,12 +22,12 @@ font is uppercase letters together with some punctuation and
 analphabetics; no lowercase or digits.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -56,23 +50,11 @@ analphabetics; no lowercase or digits.
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1 -a2
+%setup -c -a1 -a2
+%autopatch -p1
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar fonts tex doc source %{buildroot}%{_texmfdistdir}
-
-
-%changelog
-* Thu Jan 05 2012 Paulo Andrade <pcpa@mandriva.com.br> 1.1-2
-+ Revision: 757057
-- Rebuild to reduce used resources
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 1.1-1
-+ Revision: 719790
-- texlive-trajan
-- texlive-trajan
-- texlive-trajan
-
