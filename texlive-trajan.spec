@@ -3,7 +3,7 @@ Version:	15878
 Release:	2
 Summary:	Fonts from the Trajan column in Rome
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/fonts/trajan
+URL:		https://www.ctan.org/tex-archive/fonts/trajan
 License:	LPPL
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/trajan.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/trajan.doc.r%{version}.tar.xz
