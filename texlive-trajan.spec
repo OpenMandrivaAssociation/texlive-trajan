@@ -1,9 +1,10 @@
 %global tl_name trajan
 %global tl_revision 79618
+%global tl_version 1.1
 
 Name:		texlive-%{tl_name}
 Epoch:		1
-Version:	1.1
+Version:	%{tl_version}
 Release:	%{tl_revision}.1
 Summary:	Fonts from the Trajan column in Rome
 Group:		Publishing
@@ -14,7 +15,8 @@ Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/trajan.doc.r%{tl
 Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/trajan.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
 BuildSystem:	texlive
-Provides:	texlive(%{tl_name}) = %{tl_revision}
+Requires:	texlive-tlpkg
+Provides:	texlive(%{tl_name}) = %{version}
 
 %description
 Provides fonts (both as Metafont source and in Adobe Type 1 format)
@@ -24,3 +26,10 @@ rank first among the Roman's artistic legacy. The font is uppercase
 letters together with some punctuation and analphabetics; no lowercase
 or digits.
 
+
+%install -a
+mkdir -p %{buildroot}%{_texmf_updmap_d}
+cat > %{buildroot}%{_texmf_updmap_d}/%{tl_name} <<'TL_DROPIN_EOF'
+# from trajan:
+MixedMap trajan.map
+TL_DROPIN_EOF
